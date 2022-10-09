@@ -8,8 +8,8 @@ function App() {
 
   const compareStrings = () =>{
     //Sort the strings and remove spaces
-    var sortedStrOne = strOne.trim().split('').sort().join('')
-    var sortedStrTwo = strTwo.trim().split('').sort().join('')
+    var sortedStrOne = strOne.trim().toLowerCase().split('').sort().join('')
+    var sortedStrTwo = strTwo.trim().toLowerCase().split('').sort().join('')
 
     //Create a frequency object to count letters
     var strOneValues = {}
@@ -49,7 +49,10 @@ function App() {
         onChange={(e)=>setStrTwo(e.target.value)}
       />
       <button onClick={compareStrings}>Compare</button>
-      <h1>{(anagram ? `${strOne} is an anagram of ${strTwo}` : `${strOne} is not an anagram of ${strTwo}`)}</h1>
+      <div>
+        <h1 className={(anagram? 'true' : 'false')}>{(anagram ? `${strOne} is an anagram of ${strTwo}` : `${strOne} is not an anagram of ${strTwo}`)}</h1>
+      </div>
+      
     </div>
   )
 }
